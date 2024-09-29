@@ -1,46 +1,73 @@
-# Getting Started with Create React App
+# Chrome Web Plugin: H&M Product Information Extractor with Similar Product API Integration (React.js + TypeScript)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+This Chrome plugin, developed with React.js and TypeScript, extracts product information (Product Name, Price, and Product Image URL) from product pages on the H&M e-commerce website. It also integrates with an external API to find similar products based on the extracted data.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **Product Information Extraction**: Extracts product name, price, and image URL from H&M product pages.
+- **React-based Popup Interface**: Displays the extracted product details in a clean, React-powered popup interface.
+- **API Integration for Similar Products**: Calls an external API using the extracted product information to find and display similar products.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Technologies
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- **Frontend**: React.js, TypeScript
+- **Styling**: CSS Modules (or plain CSS)
+- **API Integration**: External API for fetching similar products based on the extracted product data
+- **Chrome Extensions API**: For handling plugin functionality
 
-### `npm test`
+## Installation Instructions
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. **Download the Plugin**: Clone or download the repository files from the provided link.
 
-### `npm run build`
+2. **Build the Plugin**:
+   - Navigate to the plugin directory.
+   - Run `npm install` to install the dependencies.
+   - Run `npm run build` to compile the TypeScript and React code into the `/build` folder.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. **Load the Plugin in Chrome**:
+   - Open Chrome and navigate to `chrome://extensions/`.
+   - Enable `Developer mode` by toggling the switch in the top right corner.
+   - Click `Load unpacked` and select the `/build` folder containing the compiled plugin files.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+4. **Use the Plugin**:
+   - Navigate to a product page on the H&M website.
+   - Click the plugin icon in the Chrome toolbar.
+   - The React popup will display the product name, price, image, and similar products retrieved through the API.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## API Integration for Similar Products
 
-### `npm run eject`
+This plugin includes an API integration to find similar products based on the extracted product data. The API key is securely embedded in the plugin code.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- **API Endpoint**: [API URL]
+- **API Key**: The API key is included in the plugin for fetching similar products.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Development
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+1. **Setup**:
+   - Clone the repository.
+   - Run `npm install` to install dependencies.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+2. **Running the Plugin in Development**:
+   - Use `npm run dev` to start the development server.
+   - You can test the plugin while it's running in development mode.
 
-## Learn More
+3. **Building for Production**:
+   - Run `npm run build` to compile the project into the `/build` folder for distribution.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Files Included
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **manifest.json**: Chrome plugin configuration file.
+- **src/**: Contains the React.js and TypeScript source files.
+  - **popup.tsx**: React component for the popup interface.
+  - **contentScript.ts**: Handles extraction of product information from the H&M website.
+  - **api.ts**: Manages API calls for fetching similar products.
+  - **styles/**: CSS files or modules for styling the popup UI.
+- **build/**: Compiled plugin files ready for use in the Chrome browser.
+
+## Example
+
+1. Navigate to a product page on H&M.
+2. Click the plugin icon in the Chrome toolbar.
+3. The React popup will display the product name, price, image, and similar products retrieved via the API.
